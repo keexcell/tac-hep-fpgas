@@ -1,0 +1,14 @@
+I got the file to run after some corrections to the code, such as:
+- the code wasn't recognizing data_t as a data type, needed to replace that with unsigned char
+- initializing the in array before passing it to the compute function
+- the in[totalNumWords] and out[totalNumWords] being passed into the compute function didn't work because this indexed a specific value of the array, rather than the whole array being passed
+- the check_results() function wasn't given
+
+After these corrections, I got the code to run and looking at the resource usage I found:
+- the compute function had latency: 1547 cycles, 3.868e4 ns
+- the separate pipelines all had latency: 514 cycles, 1.285e4 ns
+- the compute function used 2 BRAM, 100 FF, 530 LUT
+- pipeline A used 23 FF, 88 LUT
+- pipeline B used 22 FF, 88 LUT
+- pipeline C used 22 FF, 73 LUT
+- pipeline D used 23 FF, 88 LUT
