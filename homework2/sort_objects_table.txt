@@ -1,0 +1,3 @@
+sort_objects.cpp results
+timing(ns)  latency(cycles)  latency(ns)  resources
+2.278       511              1.278e4      35 FF 206 LUT
