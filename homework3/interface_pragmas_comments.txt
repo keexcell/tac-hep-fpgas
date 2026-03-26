@@ -1,0 +1,32 @@
+Just doing this on the matrix multiplication file
+
+Summary: the best combination I could find was just the dim=0 partitioning, but if you decide that partitioning isn't an option because of resource constraints, then the ap_memory interface pragma for the arrays and s_axilite for the return variable worked best. I think pipelining had a big effect though, it had the same time as using an interface pragma while also using fewer resources. Using the m_axi interface jumped my time up ~3x as much, and I couldn't figure out if there was a way to optimize it or if that was just a bad choice.
+
+Pragmas                      LUT    FF    DSP   BRAM  Timing(ns)
+none			     246    47    3     0     13.569
+---------------------------------------------------------------
+pipeline (II=5)              964    211   6     0     6.563
+---------------------------------------------------------------
+complete dim0 partitioning   1932   870   6     0     5.363
+pipeline (II=5)
+---------------------------------------------------------------
+complete dim0 partitioning   1972   906   6     0     5.363 
+ap_memory(A,B,C) interface
+s_axilite(return) interface
+pipeline (II=5)
+---------------------------------------------------------------
+no partitioning		     1004   247   6     0     6.563
+ap_memory(A,B,C) interface
+s_axilite(return) interface
+pipeline (II=5)
+---------------------------------------------------------------
+as above but A,B,C m_axi     4826   4505  3     2     18.250
+	^this also came with an II violation
+---------------------------------------------------------------
+as above but moved the II    2068   1707  3     2     18.250
+pragma inside k loop and 
+changed II=2
+---------------------------------------------------------------
+as above but added           14406  13232 3     20    18.250
+partitioning back in (dim=1)
+

@@ -10,4 +10,4 @@ arb ap_uint<12>  87  18  0    0     1.915
 arb ap_fixed     88  18  0    0     1.915
     (as seen in current file)
 
-The resource usage dropped significantly in how many LUTs were used and how much time was taken. It almost cut the usage in half, so this change is definitely useful and necessary if we can limit how many bits we're allocating for our variables. 
+The resource usage dropped significantly going between standard and arbitrary variables in how many LUTs were used and how much time was taken. It almost cut the usage in half, so this change is definitely useful and necessary if we can limit how many bits we're allocating for our variables. The difference between the different arbitary data types is less apparent here. 
