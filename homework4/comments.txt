@@ -1,0 +1,36 @@
+a) simple/standard version
+Latency(cycles) | Latency(ns) | LUT | FF | DSP | BRAM | Timing Est(ns)
+     66         |   1.650e3   | 184 | 16 | 6   | 0    | 5.448
+
+b) interface pragmas
+(all of these runs are with the return having a mode=s_axilite pragma, so each line is just changing the array's mode
+
+Pragma     | Latency(cycles) | Latency(ns) | LUT | FF | DSP | BRAM | Timing Est(ns)
+ap_memory  |      66         |   1.650e3   | 224 | 52 | 6   | 0    | 5.448
+bram       |      66         |   1.650e3   | 251 | 52 | 6   | 0    | 5.448    
+
+c) pipeline
+
+       	 Latency(cycles) | Latency(ns) | LUT | FF | DSP | BRAM | Timing Est(ns)
+before   |    66         |   1.650e3   | 251 | 52 | 6   | 0    | 5.448
+  (bram) |
+after    |
+   II=1  |    66         |   1.650e3   | 251 | 52 | 6   | 0    | 5.448
+   II=2  |    130        |   3.250e3   | 291 | 119| 3   | 0    | 4.568
+   II=2  |    130        |   3.250e3   | 264 | 119| 3   | 0    | 4.568
+    w/ap_memory
+
+d) partitioning
+reseting back to simple loop no other pragmas
+           Latency(cycles) | Latency(ns) | LUT | FF | DSP | BRAM | Timing Est(ns)
+none     |      66         |   1.650e3   | 184 | 16 | 6   | 0    | 5.448
+complete0|      65         |   1.625e3   | 717 | 6  | 6   | 0    | 5.188
+cyclicf=4|      66         |   1.650e3   | 224 | 16 | 6   | 0    | 5.901
+block f=4|      66         |   1.650e3   | 224 | 16 | 6   | 0    | 5.901
+reshape  |      65         |   1.625e3   |27555|12297|6   | 0    | 7.215 
+^complete
+reshape  |      66         |   1.650e3   |3618 | 24 | 6   | 0    | 8.038
+^blockf=4
+
+All in all, the best performance I got was using the ap_memory interface pragma with the II=2 pipeline.
+I for some reason couldn't get the different interface pragmas to work with the partitioning (it was a resource overload, synthesis kept failing).
