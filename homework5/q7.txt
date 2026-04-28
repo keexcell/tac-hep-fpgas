@@ -1,0 +1,4 @@
+Because latency is how quickly a process can get done, the scheduler is dependent on latency to tell it how often it can schedule tasks.
+
+If you give a maximum latency constraint lower than the natural latency (by that I mean the latency that the code would have without any constraints/scheduling done), then the scheduler is going to have to assign tasks to different workers/use more resources to get the job done in less time.
+If the minimum latency constraint is higher than the natural latency, the scheduler would extend out the tasks to meet the latency minimum. 

@@ -1,0 +1,46 @@
+No Pragmas
+---------------
+Timing Estimate: 5.448 ns
+Latency Cycles: 66
+Latency: 1.650e3 ns
+LUT: 184
+FF: 16
+DSP: 6
+BRAM: 0
+URAM: 0
+
+Partition Complete Only
+------------------------
+Timing Estimate: 5.188 ns
+Latency Cycles: 65
+Latency: 1.625e3 ns
+LUT: 717
+FF: 8
+DSP: 6
+BRAM: 0
+URAM: 0
+
+Unroll Only
+---------------
+Timing Estimate: 5.448 ns 
+Latency Cycles: 32
+Latency: 800 ns
+LUT: 1911
+FF: 33
+DSP: 12
+BRAM: 0
+URAM: 0
+
+Unroll and Partition Complete
+-----------------------------
+Timing Estimate: 4.050 ns
+Latency Cycles: 0
+Latency: 0 ns
+LUT: 7552
+FF: 0
+DSP: 384
+BRAM: 0
+URAM: 0
+
+The timing dropped from both of them alone by doing both together.
+I also notice that the latency cycles and timing both drop to 0, which I don't quite understand why that happens except that everything is completely separated and unrolled. FF's drop to 0 too, the number of DSPs jumps way up and so does LUTs (not surprised on LUTs jumping up, I was surprised about FFs dropping).

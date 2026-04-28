@@ -1,0 +1,7 @@
+The problem with the file was in the data types of the matrix values.
+The values were declared to be ap_unit<4>, which means they were confined to be 4 bits.
+However, the values get larger than that. The largest value of B is 30, the largest value of C is 45. 
+When you convert these decimals to binary, they take up 5 and 6 bits, respectively.
+I assume the extra bits get dropped, so the values end up adding up to some other number, so the code seems to run, but it returns an incorrect value, which is caught by the error checking function.
+I was able to fix it by changing the "typedef" line in the header file to
+	typedef ap_uint<6> dint16_t; 

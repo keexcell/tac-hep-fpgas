@@ -1,0 +1,17 @@
+
+Example:
+for (i=0;i<N;i++){
+	funcA(a,b,new_var);
+	funcB(c, new_var, new_var2);
+	funcC(d, new_var2);
+}
+
+Pipeline splits up each iteration of the loop to a different thread.
+The difference with dataflow is that it does a column or row transformation, and it assigns each function to a different thread.
+Dataflow is a type of pipelining, and therefore you can't run a dataflow without a pipeline being involved. But you can run a pipeline without a dataflow.
+For this example, in a normal pipeline you'd have N threads each doing task A, B, and C for a given instance i. 
+In a dataflow, you'd have 3 threads each doing either task A, B, or C for all N instances. 
+When task A is done for instance i thread 1 stores it to memory, thread 2 will grab it from memory to start task B for instance i, and then thread 3 will grab the memory needed for task C.
+Whether you use one or the other probably depends on whether you want more threads working/finishing quickly (without dataflow) or fewer threads working longer (dataflow). 
+
+

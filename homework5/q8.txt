@@ -1,0 +1,100 @@
+Without pragmas
+-------------------
+Timing: 7.914 ns
+Latency(cycles, ns): 108, 2.700e3
+LUT: 1230
+FF: 449
+DSP: 4
+BRAM: 0
+
+Pipeline II=2
+--------------
+Timing: 7.527 ns
+Latency(cycles, ns): 29, 725
+LUT: 3777
+FF: 1740
+DSP: 8
+BRAM: 0
+
+Latency max=8
+-----------------------
+Timing: 7.914
+Latency(cycles, ns): 108, 2.700e3 
+LUT: 1230
+FF: 449
+DSP: 4
+BRAM: 0
+
+Latency max=4
+-----------------------
+Timing: 7.914
+Latency(cycles, ns): 108, 2.700e3
+LUT: 1230
+FF: 449
+DSP: 4
+BRAM: 0
+
+Array partition complete
+------------------------
+Timing: 7.679 ns
+Latency(cycles, ns): 99, 2.475e3
+LUT: 1411
+FF: 1886
+DSP: 4
+BRAM: 0
+
+** Array partition complete+pipeline II=2
+------------------------
+Timing: 6.105 ns
+Latency(cycles, ns): 1, 25
+LUT: 6174
+FF: 66
+DSP: 56
+BRAM: 0
+
+Array partition complete+pipeline dataflow
+------------------------
+Timing: 11.290 ns
+Latency(cycles, ns): 93, 2.325e3
+LUT: 7212
+FF: 10580
+DSP: 4
+BRAM: 0
+
+Array reshape complete
+------------------------
+Timing: 9.838 ns
+Latency(cycles, ns): 100, 2.500e3
+LUT: 33024
+FF: 2913
+DSP: 4
+BRAM: 0
+
+Array reshape complete+pipeline II=2
+------------------------
+Timing: 6.105 ns
+Latency(cycles, ns): 1, 25
+LUT: 6174
+FF: 912
+DSP: 56
+BRAM: 0
+
+In-line
+--------------
+Timing: 7.914 ns
+Latency(cycles, ns): 108, 2.700e3
+LUT: 1230
+FF: 449
+DSP: 4
+BRAM: 0
+
+In-line OFF
+--------------
+Timing: 7.914 ns
+Latency(cycles, ns): 139, 3.475e3
+LUT: 1200
+FF: 448
+DSP: 4
+BRAM: 0
+
+Allocation,stable
