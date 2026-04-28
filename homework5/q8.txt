@@ -1,3 +1,7 @@
+The best timing I got was array_partition complete for all variables and a pipeline with II=2 in the part of the main function that it is acting on the read, compute blur, and write functions.
+The best combination of timing and resources was the same combination but II=3 or 2 in all the loops.
+
+
 Without pragmas
 -------------------
 Timing: 7.914 ns
@@ -97,4 +101,40 @@ FF: 448
 DSP: 4
 BRAM: 0
 
-Allocation,stable
+Stable
+--------------
+Timing: 7.914 ns
+Latency(cycles, ns): 108, 2.700e3
+LUT: 1230
+FF: 449
+DSP: 4
+BRAM: 0
+
+** Array partition complete+pipeline II=3 in all loops
+------------------------
+Timing: 7.679 ns
+Latency(cycles, ns): 99, 2.475e3
+LUT: 1411
+FF: 1886
+DSP: 4
+BRAM: 0
+
+Array partition complete+pipeline II=3 in all loops
+latency min4,max8 in all loops
+------------------------
+Timing: 7.679 ns
+Latency(cycles, ns): 278, 6.950e3
+LUT: 1612
+FF: 1916
+DSP: 4
+BRAM: 0
+
+Array partition complete+pipeline II=2 in all loops
+latency min4,max8 in only main function loop
+------------------------
+Timing: 7.679 ns
+Latency(cycles, ns): 99, 2.475e3
+LUT: 1411
+FF: 1886
+DSP: 4
+BRAM: 0
