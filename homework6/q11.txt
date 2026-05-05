@@ -1,0 +1,18 @@
+Pragma                   TimeEst    Lat(Cyc)   Lat(ns)    BRAM    DSP    FF    LUT    URAM
+None                     10.049 ns  131107     3.278e6    0       6      2633  2255   0    <- had an II/resource violation
+Interface,               8.404 ns   32         800        0       768    24645 90624  0
+    partition complete all arrays, 
+    pipeline II=1 inmost loop
+Interface,               5.887 ns   282753     7.069e6    0       3      241   828    0
+    partition complete for x, y partition dim=1 for weights,
+    pipeline II=1 inmost loop
+Interface,               9.155 ns   4130       1.030e5    0       192    131165 40698 0
+    partition complete for x, y partition dim=1 for weights,
+    loop unroll in inmost loop
+Interface,               8.404 ns   32         800        0       768    24645 90624  0
+    partition complete for x, y partition dim=1 for weights,
+    pipeline II=1 all loops
+
+
+The best runs I got were either partitioning all arrays and 1 pipeline,
+ or pipelining all loops and not partitioning weights completely
